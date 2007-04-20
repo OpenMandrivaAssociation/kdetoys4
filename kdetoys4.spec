@@ -1,5 +1,5 @@
 # remove it when kde4 will be official kde package
-%define _prefix /opt
+%define _prefix /opt/kde4/
 %define _libdir %_prefix/%_lib
 %define _datadir %_prefix/share/
 %define _bindir %_prefix/bin
@@ -187,7 +187,6 @@ rm -fr %buildroot
 #
 %_libdir/kde4/eyes_panelapplet.so
 %_libdir/kde4/fifteen_panelapplet.so
-%_libdir/kde4/ww_panelapplet.so
 %_libdir/kde4/kmoon_panelapplet.so
 #
 #
@@ -241,16 +240,11 @@ rm -fr %buildroot
 %_datadir/apps/amor/pics/static/*.png
 
 #
-%dir %_datadir/apps/kdesktop/
-%dir %_datadir/apps/kdesktop/programs/
-%_datadir/apps/kdesktop/programs/kdeworld.desktop
-#
 #
 %dir %_datadir/apps/kicker/
 %dir %_datadir/apps/kicker/applets/
 %_datadir/apps/kicker/applets/eyesapplet.desktop
 %_datadir/apps/kicker/applets/kfifteenapplet.desktop
-%_datadir/apps/kicker/applets/kwwapplet.desktop
 #
 #
 %dir %_datadir/apps/kmoon/
@@ -303,7 +297,7 @@ rm -fr %buildroot
 %_datadir/icons/crystalsvg/32x32/apps/fifteenpieces.png
 %_datadir/icons/crystalsvg/48x48/apps/fifteenpieces.png
 %_datadir/icons/crystalsvg/scalable/apps/fifteenpieces.svgz
-%_datadir/services/ScreenSavers/ktux.desktop
+%_datadir/kde4/services/ScreenSavers/ktux.desktop
 
 
 #
@@ -350,9 +344,9 @@ rm -fr %buildroot
 %_datadir/apps/kweather/*.png
 %_datadir/apps/kweatherservice/*.dat
 %_datadir/apps/kweatherservice/*.desktop
-%_datadir/services/kcmweather.desktop
-%_datadir/services/kcmweatherservice.desktop
-%_datadir/services/kweatherservice.desktop
+%_datadir/kde4/services/kcmweather.desktop
+%_datadir/kde4/services/kcmweatherservice.desktop
+%_datadir/kde4/services/kweatherservice.desktop
 %_bindir/kweatherreport
 %_bindir/kweatherservice
 %_libdir/kde4/kcm_weather.so
@@ -367,6 +361,5 @@ rm -fr %buildroot
 
 %_datadir/dbus-1/interfaces/org.kde.kweather.kweather.xml
 %_datadir/dbus-1/interfaces/org.kde.kweather.service.xml
-
 
 
