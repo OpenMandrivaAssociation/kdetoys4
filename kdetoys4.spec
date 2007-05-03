@@ -283,20 +283,16 @@ rm -fr %buildroot
 
 %dir %_datadir/apps/kteatime/
 %_datadir/apps/kteatime/kteatime.notifyrc
-%_datadir/apps/kteatime/crystalsvg/22x22/actions/mug.png
-%_datadir/apps/kteatime/crystalsvg/22x22/actions/tea_anim1.png
-%_datadir/apps/kteatime/crystalsvg/22x22/actions/tea_anim2.png
-%_datadir/apps/kteatime/crystalsvg/22x22/actions/tea_not_ready.png
 %_datadir/apps/kteatime/hicolor/16x16/apps/kteatime.png
 %_datadir/apps/kteatime/hicolor/32x32/apps/kteatime.png
 %_datadir/apps/kteatime/hicolor/48x48/apps/kteatime.png
 
+%_datadir/apps/kteatime/oxygen/22x22/actions/mug.png
+%_datadir/apps/kteatime/oxygen/22x22/actions/tea_anim1.png
+%_datadir/apps/kteatime/oxygen/22x22/actions/tea_anim2.png
+%_datadir/apps/kteatime/oxygen/22x22/actions/tea_not_ready.png
+%_iconsdir/hicolor/scalable/apps/fifteenpieces.svgz
 
-%_datadir/icons/crystalsvg/16x16/apps/fifteenpieces.png
-%_datadir/icons/crystalsvg/22x22/apps/fifteenpieces.png
-%_datadir/icons/crystalsvg/32x32/apps/fifteenpieces.png
-%_datadir/icons/crystalsvg/48x48/apps/fifteenpieces.png
-%_datadir/icons/crystalsvg/scalable/apps/fifteenpieces.svgz
 %_datadir/kde4/services/ScreenSavers/ktux.desktop
 
 
@@ -361,5 +357,3 @@ rm -fr %buildroot
 
 %_datadir/dbus-1/interfaces/org.kde.kweather.kweather.xml
 %_datadir/dbus-1/interfaces/org.kde.kweather.service.xml
-
-
