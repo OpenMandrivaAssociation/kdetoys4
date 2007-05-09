@@ -353,7 +353,8 @@ rm -fr %buildroot
 
 %files -n %lib_name-kweather
 %defattr(-,root,root,-)
-%_libdir/libkdeinit_kweatherreport.so
+%_libdir/libkdeinit4_kweatherreport.so
 
 %_datadir/dbus-1/interfaces/org.kde.kweather.kweather.xml
 %_datadir/dbus-1/interfaces/org.kde.kweather.service.xml
+
