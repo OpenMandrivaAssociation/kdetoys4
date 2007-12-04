@@ -55,7 +55,7 @@ License:	GPL
 
 %define mini_release %mkrel 0.%branch_date.1
 BuildRequires: kdelibs4-devel >= %version-%mini_release
-BuildRequires:	XFree86-devel
+BuildRequires:	X11-devel
 BuildRequires:	kdebase4-devel >= %version-%mini_release
 
 %description
