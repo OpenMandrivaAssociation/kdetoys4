@@ -1,34 +1,7 @@
-# remove it when kde4 will be official kde package
-%define _prefix /opt/kde4/
-%define _libdir %_prefix/%_lib
-%define _datadir %_prefix/share/
-%define _bindir %_prefix/bin
-%define _includedir %_prefix/include/
-%define _iconsdir %_datadir/icons/
-%define _sysconfdir %_prefix/etc/
-%define _docdir %_datadir/doc/
-
-%define branch_date 20070502
-
-%define use_enable_final 1
-%{?_no_enable_final: %{expand: %%global use_enable_final 0}}
-
-%define compile_apidox 1
-%{?_no_apidox: %{expand: %%global compile_apidox 0}}
-
-%define unstable 1
-%{?_unstable: %{expand: %%global unstable 1}}
+%define revision 745233
 
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-
-%define use_enable_pie 1
-%{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
-
-%if %unstable
-%define dont_strip 1
-%endif
-
 
 %define lib_name_orig %mklibname kdetoys4
 %define lib_major 1
@@ -36,98 +9,285 @@
 
 Name:		kdetoys4
 Summary:	K Desktop Environment - Toys and Amusements
-Version:    	3.90.1
-Release:    	%mkrel 0.%branch_date.1
+Version:    	3.97.1
+Release:    	%mkrel 0.%revision.1
 Epoch:		1
 URL:		ftp://ftp.kde.org/pub/kde/stable/%version/src/
-Packager:	Mandriva Linux KDE Team <kde@mandriva.com>
 %if %branch
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version-%branch_date.tar.bz2
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version.%revision.tar.bz2
 %else
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version.tar.bz2
 %endif
-
-
-
 Group:		Graphical desktop/KDE
 BuildRoot:	%_tmppath/%name-%version-%release-root
 License:	GPL
-
 %define mini_release %mkrel 0.%branch_date.1
-BuildRequires: kdelibs4-devel >= %version-%mini_release
-BuildRequires:	X11-devel
-BuildRequires:	kdebase4-devel >= %version-%mini_release
+BuildRequires:	kdebase4-devel >= %version
 
 %description
 Toys for the K Desktop Environment.
 
 Software included in this package are:
 	- amor: Amusing Misuse Of Resources put's comic figures above your windows
-	- eyesapplet: a kicker applet similar to XEyes
-	- fifteenapplet: kicker applet, order 15 pieces in a 4x4 square by moving them
+	- eyesapplet: a plasma applet similar to XEyes
+	- fifteenapplet: Plasma applet, order 15 pieces in a 4x4 square by moving them
 	- kmoon: system tray applet showing the moon phase
-	- kodo: mouse movement meter
-	- kscore: kicker applet with a sports ticker
 	- kteatime: system tray applet that makes sure your tea doesn't get too strong
 	- ktux: Tux-in-a-Spaceship screen saver
-	- kweather: kicker applet that will display the current weather outside
-	- kworldwatch: application and kicker applet showing daylight area on the world globe
-
-%package -n %lib_name-devel
-Summary:	Headers files for kdetoys
-Group:		Development/KDE and Qt
-
-Provides:	%lib_name_orig-devel = %epoch:%version-%release
-Provides:	kdetoys4-devel = %epoch:%version-%release
-
-%description -n %lib_name-devel
-Headers files for kdetoys.
+	- kweather: plasma applet that will display the current weather outside
+	- kworldclock: application and plasma applet showing daylight area on the world globe
 
 
-%package kweather
+#-------------------------------------------------------------------
+
+%package -n kde4-kweather
 Group:      Graphical desktop/KDE
-Summary:    kweather
+Summary:    Plasma applet that will display the current weather outside 
 Provides:   kweather4
-Requires:	%lib_name-kweather = %epoch:%version-%release
+Obsoletes:  %lib_name-kweather < 3.97.1-0.745233.1
 
-%description kweather
-kicker applet that will display the current weather outside
+%description -n kde4-kweather
+Plasma applet that will display the current weather outside
 
-%package -n %lib_name-kweather
-Group:      Development/KDE and Qt
-Summary:    Libraries for kdetoys
+%files -n kde4-kweather
+%defattr(-,root,root)
+%_kde_bindir/kweatherreport
+%_kde_bindir/kweatherservice
+%_kde_libdir/libkdeinit4_kweatherreport.so
+%_kde_appsdir/kicker/applets/kweather.desktop
+%dir %_kde_appsdir/kweather
+%_kde_appsdir/kweather/*.png
+%_kde_appsdir/kweatherservice/stations.dat
+%_kde_appsdir/kweatherservice/weather_stations.desktop
+%_kde_iconsdir/hicolor/*/apps/kweather.png   
+%_kde_datadir/kde4/services/kweatherservice.desktop
 
-%description -n %lib_name-kweather
-kicker applet that will display the current weather outside
+
+%_datadir/dbus-1/interfaces/org.kde.kweather.kweather.xml
+%_datadir/dbus-1/interfaces/org.kde.kweather.service.xml
+
+%dir %_kde_docdir/HTML/en/kweather
+%doc %_kde_docdir/HTML/en/kweather/index.cache.bz2
+%doc %_kde_docdir/HTML/en/kweather/index.docbook
+
+#-------------------------------------------------------------------
+
+%package -n kde4-amor
+Group:      Graphical desktop/KDE
+Summary:    Amusing Misuse Of Resources put's comic figures above your windows
+Provides:   amor4
+Conflicts:  kdetoys4 < 3.97.1-0.745233.1
+
+%description -n kde4-amor
+Amusing Misuse Of Resources put's comic figures above your windows
+
+%files -n kde4-amor
+%defattr(-,root,root)
+%_kde_bindir/amor
+%_kde_datadir/applications/kde4/amor.desktop
+%_kde_datadir/kde4/services/kcmweather.desktop
+%_kde_datadir/kde4/services/kcmweatherservice.desktop
+%_kde_libdir/kde4/kcm_weather.so
+%_kde_libdir/kde4/kcm_weatherservice.so
+%_kde_libdir/kde4/weather_panelapplet.so
+%dir %_kde_appsdir/amor
+%_kde_appsdir/amor/billyrc
+%_kde_appsdir/amor/blobrc
+%_kde_appsdir/amor/bonhommerc
+%_kde_appsdir/amor/bsdrc
+%_kde_appsdir/amor/eyesrc
+%_kde_appsdir/amor/ghostrc
+%_kde_appsdir/amor/nekorc
+%_kde_appsdir/amor/pingurc
+%_kde_appsdir/amor/taorc
+%_kde_appsdir/amor/tips-en
+%_kde_appsdir/amor/tuxrc
+%_kde_appsdir/amor/wormrc
+%dir %_kde_appsdir/amor/pics
+%dir %_kde_appsdir/amor/pics/animated
+%dir %_kde_appsdir/amor/pics/animated/blob
+%_kde_appsdir/amor/pics/animated/blob/*.png
+%dir %_kde_appsdir/amor/pics/animated/bonhomme
+%_kde_appsdir/amor/pics/animated/bonhomme/*.png
+%dir %_kde_appsdir/amor/pics/animated/eyes
+%_kde_appsdir/amor/pics/animated/eyes/*.png
+%dir %_kde_appsdir/amor/pics/animated/tao
+%_kde_appsdir/amor/pics/animated/tao/*.png
+%dir %_kde_appsdir/amor/pics/animated/worm
+%_kde_appsdir/amor/pics/animated/worm/*.png
+%dir %_kde_appsdir/amor/pics/animated/pingu
+%_kde_appsdir/amor/pics/animated/pingu/*.png
+%dir %_kde_appsdir/amor/pics/preview
+%_kde_appsdir/amor/pics/preview/*.png
+%dir %_kde_appsdir/amor/pics/animated/ghost
+%_kde_appsdir/amor/pics/animated/ghost/*.png
+%dir %_kde_appsdir/amor/pics/animated/neko
+%_kde_appsdir/amor/pics/animated/neko/*.png
+%dir %_kde_appsdir/amor/pics/static
+%_kde_appsdir/amor/pics/static/*.png
+%_kde_iconsdir/hicolor/*/apps/amor.png
+%_datadir/dbus-1/interfaces/org.kde.amor.xml
+
+%dir %_kde_docdir/HTML/en/amor
+%doc %_kde_docdir/HTML/en/amor/*.png
+%doc %_kde_docdir/HTML/en/amor/*.bz2
+%doc %_kde_docdir/HTML/en/amor/*.docbook
+
+#-------------------------------------------------------------------
+
+%package -n kde4-ktux
+Group:      Graphical desktop/KDE
+Summary:    Tux-in-a-Spaceship screen saver
+Provides:   ktux4
+Conflicts:  kdetoys4 < 3.97.1-0.745233.1
+
+%description -n kde4-ktux
+Tux-in-a-Spaceship screen saver
+
+%files -n kde4-ktux
+%defattr(-,root,root)
+%_kde_bindir/ktux
+%dir %_kde_appsdir/ktux
+%dir %_kde_appsdir/ktux/sprites
+%_kde_appsdir/ktux/sprites/spriterc
+%_kde_appsdir/ktux/sprites/*.png
+%_kde_iconsdir/hicolor/*/apps/ktux.png
+%_kde_datadir/kde4/services/ScreenSavers/ktux.desktop
+
+#-------------------------------------------------------------------
+
+%package -n kde4-kmoon
+Group:      Graphical desktop/KDE
+Summary:    System tray applet showing the moon phase
+Provides:   kmoon4
+Conflicts:  kdetoys4 < 3.97.1-0.745233.1
+
+%description -n kde4-kmoon
+System tray applet showing the moon phase
+
+%files -n kde4-kmoon
+%defattr(-,root,root)
+%_kde_libdir/kde4/kmoon_panelapplet.so
+%_kde_appsdir/kicker/applets/kmoonapplet.desktop
+%dir %_kde_appsdir/kmoon
+%dir %_kde_appsdir/kmoon/pics
+%_kde_appsdir/kmoon/pics/*.png
+%_kde_iconsdir/hicolor/*/apps/kmoon.png
+
+%dir %_kde_docdir/HTML/en/kmoon
+%_kde_docdir/HTML/en/kmoon/index.cache.bz2
+%_kde_docdir/HTML/en/kmoon/index.docbook
+
+#-------------------------------------------------------------------
+
+%package -n kde4-kteatime
+Group:      Graphical desktop/KDE
+Summary:    System tray applet that makes sure your tea doesn't get too strong
+Provides:   kteatime4
+Conflicts:  kdetoys4 < 3.97.1-0.745233.1
+
+%description -n kde4-kteatime
+System tray applet that makes sure your tea doesn't get too strong
+
+%files -n kde4-kteatime
+%defattr(-,root,root)
+%_kde_bindir/kteatime
+%dir %_kde_appsdir/kteatime
+%_kde_appsdir/kteatime/hicolor
+%_kde_appsdir/kteatime/kteatime.notifyrc
+%_kde_datadir/applications/kde4/kteatime.desktop
+
+%dir %_kde_docdir/HTML/en/kteatime
+%_kde_docdir/HTML/en/kteatime/config.png
+%_kde_docdir/HTML/en/kteatime/index.cache.bz2
+%_kde_docdir/HTML/en/kteatime/index.docbook
+
+#-------------------------------------------------------------------
+
+%package -n kde4-kworldclock
+Group:      Graphical desktop/KDE
+Summary:    Application and plasma applet showing daylight area on the world globe
+Provides:   kworldclock4
+Conflicts:  kdetoys4 < 3.97.1-0.745233.1
+
+%description -n kde4-kworldclock
+TODO
+
+%files -n kde4-kworldclock
+%defattr(-,root,root)
+%_kde_bindir/kworldclock
+%_kde_datadir/applications/kde4/kworldclock.desktop
+%_kde_appsdir/kdesktop/programs/kdeworld.desktop
+%_kde_appsdir/kworldclock/maps/depths/400.jpg
+%_kde_appsdir/kworldclock/maps/depths/800.jpg
+%_kde_appsdir/kworldclock/maps/depths/depths.desktop
+%_kde_appsdir/kworldclock/maps/flatworld/1200.jpg
+%_kde_appsdir/kworldclock/maps/flatworld/1600.jpg
+%_kde_appsdir/kworldclock/maps/flatworld/200.jpg
+%_kde_appsdir/kworldclock/maps/flatworld/400.jpg
+%_kde_appsdir/kworldclock/maps/flatworld/800.jpg
+%_kde_appsdir/kworldclock/maps/flatworld/flatworld.desktop
+%_kde_appsdir/kworldclock/pics/flag-blue.png
+%_kde_appsdir/kworldclock/pics/flag-green.png
+%_kde_appsdir/kworldclock/pics/flag-mask.xpm
+%_kde_appsdir/kworldclock/pics/flag-red.png
+%_kde_appsdir/kworldclock/pics/flag.png
+%_kde_appsdir/kworldclock/zone.tab
+%_kde_libdir/kde4/ww_panelapplet.so
+%_kde_appsdir/kicker/applets/kwwapplet.desktop
+%_kde_iconsdir/hicolor/*/apps/kworldclock.png
+
+
+%dir %doc %_kde_docdir/HTML/en/kworldclock
+%doc %_kde_docdir/HTML/en/kworldclock/index.cache.bz2
+%doc %_kde_docdir/HTML/en/kworldclock/*.docbook
+%doc %_kde_docdir/HTML/en/kworldclock/*.png
+
+#-------------------------------------------------------------------
+
+%package -n kde4-eyesapplet
+Group:      Graphical desktop/KDE
+Summary:    A plasma applet similar to XEyes
+Provides:   eyesapplet4
+Conflicts:  kdetoys4 < 3.97.1-0.745233.1
+
+%description -n kde4-eyesapplet
+A plasma applet similar to XEyes
+
+%files -n kde4-eyesapplet
+%defattr(-,root,root)
+%_kde_libdir/kde4/eyes_panelapplet.so
+%_kde_appsdir/kicker/applets/eyesapplet.desktop
+
+#-------------------------------------------------------------------
+
+%package -n kde4-fifteenpieces
+Group:      Graphical desktop/KDE
+Summary:    Plasma applet, order 15 pieces in a 4x4 square by moving them
+Provides:   fifteenpieces4
+Conflicts:  kdetoys4 < 3.97.1-0.745233.1
+
+%description -n kde4-fifteenpieces
+Plasma applet, order 15 pieces in a 4x4 square by moving them
+
+%files -n kde4-fifteenpieces
+%defattr(-,root,root)
+%_kde_libdir/kde4/fifteen_panelapplet.so
+%_kde_appsdir/kicker/applets/kfifteenapplet.desktop
+%_kde_iconsdir/hicolor/*/*/fifteenpieces.*
+
+#-------------------------------------------------------------------
 
 
 
 %prep
 
-%setup -q -nkdetoys-%version-%branch_date
+%setup -q -n kdetoys-%version
 
 
 %build
-cd $RPM_BUILD_DIR/kdetoys-%version-%branch_date
-mkdir build
-cd build
-export QTDIR=/usr/lib/qt4/
-export PATH=$QTDIR/bin:$PATH
 
-cmake -DCMAKE_INSTALL_PREFIX=%_prefix \
-%if %use_enable_final
-      -DKDE4_ENABLE_FINAL=ON \
-%endif
-%if %use_enable_pie
-      -DKDE4_ENABLE_FPIE=ON \
-%endif
-%if %unstable
-      -DCMAKE_BUILD_TYPE=Debug \
-%endif
-%if "%{_lib}" != "lib"
-      -DLIB_SUFFIX=64 \
-%endif
-        ../
+%cmake_kde4
 
 %make
 
@@ -136,225 +296,12 @@ cmake -DCMAKE_INSTALL_PREFIX=%_prefix \
 
 %install
 rm -fr %buildroot
-cd $RPM_BUILD_DIR/kdetoys-%version-%branch_date/build/
-
+cd build
 make DESTDIR=%buildroot install
-
-
-# Create LMDK menu entries
-install -d %buildroot/%_menudir/
-
-
-mandriva-add-xdg-categories.pl %buildroot/%_datadir/applications/kde4/amor.desktop "More Applications/Games/Toys" 
-mandriva-add-xdg-categories.pl %buildroot/%_datadir/applications/kde4/kteatime.desktop "More Applications/Games/Toys" kde
-mandriva-add-xdg-categories.pl %buildroot/%_datadir/applications/kde4/kworldclock.desktop "More Applications/Games/Toys"
-
-
-%post
-/sbin/ldconfig
-%update_icon_cache hicolor
-
-%postun
-/sbin/ldconfig
-%clean_icon_cache hicolor
-
-
-%post kweather -p /sbin/ldconfig
-
-
-%postun kweather -p /sbin/ldconfig
-
-%post -n %lib_name-kweather -p /sbin/ldconfig
-
-
-%postun -n %lib_name-kweather -p /sbin/ldconfig
 
 
 %clean
 rm -fr %buildroot
 
 
-%files 
-%defattr(-,root,root)
-
-#
-%_bindir/amor
-%_bindir/kteatime
-%_bindir/ktux
-%_bindir/kworldclock
-
-#
-#
-%_libdir/kde4/eyes_panelapplet.so
-%_libdir/kde4/fifteen_panelapplet.so
-%_libdir/kde4/kmoon_panelapplet.so
-#
-#
-%_datadir/applications/kde4/*.desktop
-#
-#
-%dir %_datadir/apps/
-%dir %_datadir/apps/amor/
-%_datadir/apps/amor/billyrc
-%_datadir/apps/amor/blobrc
-%_datadir/apps/amor/bsdrc
-%_datadir/apps/amor/eyesrc
-%_datadir/apps/amor/nekorc
-%_datadir/apps/amor/ghostrc
-%_datadir/apps/amor/pingurc
-%_datadir/apps/amor/taorc
-%_datadir/apps/amor/tips-en
-%_datadir/apps/amor/tuxrc
-%_datadir/apps/amor/wormrc
-%_datadir/apps/amor/bonhommerc
-#
-
-%dir %_datadir/apps/amor/pics/animated/blob/
-%_datadir/apps/amor/pics/animated/blob/*.png
-
-%dir %_datadir/apps/amor/pics/animated/bonhomme/
-%_datadir/apps/amor/pics/animated/bonhomme/*.png
-
-%dir %_datadir/apps/amor/pics/animated/eyes/
-%_datadir/apps/amor/pics/animated/eyes/*.png
-
-%dir %_datadir/apps/amor/pics/animated/ghost/
-%_datadir/apps/amor/pics/animated/ghost/*.png
-
-%dir %_datadir/apps/amor/pics/animated/neko/
-%_datadir/apps/amor/pics/animated/neko/*.png
-
-%dir %_datadir/apps/amor/pics/animated/pingu/
-%_datadir/apps/amor/pics/animated/pingu/*.png
-
-%dir %_datadir/apps/amor/pics/animated/tao/
-%_datadir/apps/amor/pics/animated/tao/*.png
-
-%dir %_datadir/apps/amor/pics/animated/worm/
-%_datadir/apps/amor/pics/animated/worm/*.png
-
-%dir %_datadir/apps/amor/pics/preview/
-%_datadir/apps/amor/pics/preview/*.png
-
-%dir %_datadir/apps/amor/pics/static/
-%_datadir/apps/amor/pics/static/*.png
-
-#
-#
-%dir %_datadir/apps/kicker/
-%dir %_datadir/apps/kicker/applets/
-%_datadir/apps/kicker/applets/eyesapplet.desktop
-%_datadir/apps/kicker/applets/kfifteenapplet.desktop
-#
-#
-%dir %_datadir/apps/kmoon/
-%dir %_datadir/apps/kmoon/pics/
-%_datadir/apps/kmoon/pics/*.png
-#
-#
-#
-#
-%dir %_datadir/apps/ktux/
-%dir %_datadir/apps/ktux/sprites/
-%_datadir/apps/ktux/sprites/spriterc
-%_datadir/apps/ktux/sprites/*.png
-#
-#
-%dir %_datadir/apps/kworldclock/
-%_datadir/apps/kworldclock/zone.tab
-#
-%dir %_datadir/apps/kworldclock/pics/
-%_datadir/apps/kworldclock/pics/*.png
-%_datadir/apps/kworldclock/pics/*.xpm
-
-%dir %_datadir/apps/kworldclock/maps/flatworld/
-%_datadir/apps/kworldclock/maps/flatworld/*.jpg
-%_datadir/apps/kworldclock/maps/flatworld/*.desktop
-#
-%dir %_datadir/apps/kworldclock/maps/
-%dir %_datadir/apps/kworldclock/maps/depths/
-%_datadir/apps/kworldclock/maps/depths/*.desktop
-%_datadir/apps/kworldclock/maps/depths/*.jpg
-#
-#
-%dir %_datadir/apps/kicker/
-%dir %_datadir/apps/kicker/applets/
-%_datadir/apps/kicker/applets/kmoonapplet.desktop
-
-%dir %_datadir/apps/kteatime/
-%_datadir/apps/kteatime/kteatime.notifyrc
-%_datadir/apps/kteatime/hicolor/16x16/apps/kteatime.png
-%_datadir/apps/kteatime/hicolor/32x32/apps/kteatime.png
-%_datadir/apps/kteatime/hicolor/48x48/apps/kteatime.png
-
-%_datadir/apps/kteatime/oxygen/22x22/actions/mug.png
-%_datadir/apps/kteatime/oxygen/22x22/actions/tea_anim1.png
-%_datadir/apps/kteatime/oxygen/22x22/actions/tea_anim2.png
-%_datadir/apps/kteatime/oxygen/22x22/actions/tea_not_ready.png
-%_iconsdir/hicolor/scalable/apps/fifteenpieces.svgz
-
-%_datadir/kde4/services/ScreenSavers/ktux.desktop
-
-
-#
-%_datadir/icons/hicolor/16x16/apps/*.png
-
-%_datadir/icons/hicolor/22x22/apps/*.png
-
-%_datadir/icons/hicolor/32x32/apps/*.png
-
-%_datadir/icons/hicolor/48x48/apps/*.png
-
-%dir %_docdir/HTML/en/amor/
-%doc %_docdir/HTML/en/amor/*.png
-%doc %_docdir/HTML/en/amor/*.bz2
-%doc %_docdir/HTML/en/amor/*.docbook
-%dir %_docdir/HTML/en/kmoon/
-%doc %_docdir/HTML/en/kmoon/*.bz2
-%doc %_docdir/HTML/en/kmoon/*.docbook
-%dir %_docdir/HTML/en/kodo/
-%doc %_docdir/HTML/en/kodo/*.png
-%doc %_docdir/HTML/en/kodo/*.bz2
-%doc %_docdir/HTML/en/kodo/*.docbook
-%dir %_docdir/HTML/en/kteatime/
-%doc %_docdir/HTML/en/kteatime/*.png
-%doc %_docdir/HTML/en/kteatime/*.bz2
-%doc %_docdir/HTML/en/kteatime/*.docbook
-%dir %_docdir/HTML/en/kweather/
-%doc %_docdir/HTML/en/kweather/*.bz2
-%doc %_docdir/HTML/en/kweather/*.docbook
-%dir %_docdir/HTML/en/kworldclock/
-%doc %_docdir/HTML/en/kworldclock/*.bz2
-%doc %_docdir/HTML/en/kworldclock/*.docbook
-%doc %_docdir/HTML/en/kworldclock/*.png
-
-
-
-
-%files -n %lib_name-devel
-%defattr(-,root,root,-)
-%_datadir/dbus-1/interfaces/org.kde.amor.xml
-
-%files kweather
-%defattr(-,root,root,-)
-%_datadir/apps/kweather/*.png
-%_datadir/apps/kweatherservice/*.dat
-%_datadir/apps/kweatherservice/*.desktop
-%_datadir/kde4/services/kcmweather.desktop
-%_datadir/kde4/services/kcmweatherservice.desktop
-%_datadir/kde4/services/kweatherservice.desktop
-%_bindir/kweatherreport
-%_bindir/kweatherservice
-%_libdir/kde4/kcm_weather.so
-%_libdir/kde4/kcm_weatherservice.so
-%_libdir/kde4/weather_panelapplet.so
-%_datadir/apps/kicker/applets/kweather.desktop
-
-
-%files -n %lib_name-kweather
-%defattr(-,root,root,-)
-%_libdir/libkdeinit4_kweatherreport.so
-
-%_datadir/dbus-1/interfaces/org.kde.kweather.kweather.xml
-%_datadir/dbus-1/interfaces/org.kde.kweather.service.xml
 
