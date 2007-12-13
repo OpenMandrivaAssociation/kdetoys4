@@ -21,9 +21,8 @@ Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version.tar.bz2
 Group:		Graphical desktop/KDE
 BuildRoot:	%_tmppath/%name-%version-%release-root
 License:	GPL
-%define mini_release %mkrel 0.%branch_date.1
 BuildRequires:	kdebase4-devel >= %version
-
+BuildRequires:  kdebase4-workspace-devel
 %description
 Toys for the K Desktop Environment.
 
