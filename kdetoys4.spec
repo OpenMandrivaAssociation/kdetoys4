@@ -192,7 +192,6 @@ System tray applet that makes sure your tea doesn't get too strong
 %defattr(-,root,root)
 %_kde_bindir/kteatime
 %dir %_kde_appsdir/kteatime
-%_kde_appsdir/kteatime/hicolor
 %_kde_appsdir/kteatime/kteatime.notifyrc
 %_kde_datadir/applications/kde4/kteatime.desktop
 %_kde_iconsdir/hicolor/*/apps/kteatime.png
