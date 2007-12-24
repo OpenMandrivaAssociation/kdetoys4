@@ -1,4 +1,4 @@
-%define revision 745233
+%define revision 750618
 
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
@@ -10,12 +10,13 @@
 Name:		kdetoys4
 Summary:	K Desktop Environment - Toys and Amusements
 Version:    	3.97.1
-Release:    	%mkrel 0.%revision.1
 Epoch:		1
 URL:		ftp://ftp.kde.org/pub/kde/stable/%version/src/
 %if %branch
+Release:        %mkrel 0.%revision.1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version.%revision.tar.bz2
 %else
+Release:        %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version.tar.bz2
 %endif
 Group:		Graphical desktop/KDE
@@ -194,6 +195,7 @@ System tray applet that makes sure your tea doesn't get too strong
 %_kde_appsdir/kteatime/hicolor
 %_kde_appsdir/kteatime/kteatime.notifyrc
 %_kde_datadir/applications/kde4/kteatime.desktop
+%_kde_iconsdir/hicolor/*/apps/kteatime.png
 
 %dir %_kde_docdir/HTML/en/kteatime
 %_kde_docdir/HTML/en/kteatime/config.png
