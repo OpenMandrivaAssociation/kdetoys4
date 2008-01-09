@@ -1,6 +1,6 @@
 %define revision 750618
 
-%define branch 1
+%define branch 0
 %{?_branch: %{expand: %%global branch 1}}
 
 %define lib_name_orig %mklibname kdetoys4
@@ -9,7 +9,7 @@
 
 Name:		kdetoys4
 Summary:	K Desktop Environment - Toys and Amusements
-Version:    	3.97.1
+Version:    4.0.0
 Epoch:		1
 URL:		ftp://ftp.kde.org/pub/kde/stable/%version/src/
 %if %branch
@@ -29,9 +29,6 @@ Toys for the K Desktop Environment.
 
 Software included in this package are:
 	- amor: Amusing Misuse Of Resources put's comic figures above your windows
-	- eyesapplet: a plasma applet similar to XEyes
-	- fifteenapplet: Plasma applet, order 15 pieces in a 4x4 square by moving them
-	- kmoon: system tray applet showing the moon phase
 	- kteatime: system tray applet that makes sure your tea doesn't get too strong
 	- ktux: Tux-in-a-Spaceship screen saver
 	- kweather: plasma applet that will display the current weather outside
@@ -54,18 +51,16 @@ Plasma applet that will display the current weather outside
 %_kde_bindir/kweatherreport
 %_kde_bindir/kweatherservice
 %_kde_libdir/libkdeinit4_kweatherreport.so
-%_kde_appsdir/kicker/applets/kweather.desktop
 %dir %_kde_appsdir/kweather
 %_kde_appsdir/kweather/*.png
 %_kde_appsdir/kweatherservice/stations.dat
 %_kde_appsdir/kweatherservice/weather_stations.desktop
 %_kde_iconsdir/hicolor/*/apps/kweather.png   
 %_kde_datadir/kde4/services/kweatherservice.desktop
-
-
+%_kde_libdir/kde4/kcm_weather.so
+%_kde_libdir/kde4/kcm_weatherservice.so
 %_datadir/dbus-1/interfaces/org.kde.kweather.kweather.xml
 %_datadir/dbus-1/interfaces/org.kde.kweather.service.xml
-
 %dir %_kde_docdir/HTML/en/kweather
 %doc %_kde_docdir/HTML/en/kweather/index.cache.bz2
 %doc %_kde_docdir/HTML/en/kweather/index.docbook
@@ -87,44 +82,8 @@ Amusing Misuse Of Resources put's comic figures above your windows
 %_kde_datadir/applications/kde4/amor.desktop
 %_kde_datadir/kde4/services/kcmweather.desktop
 %_kde_datadir/kde4/services/kcmweatherservice.desktop
-%_kde_libdir/kde4/kcm_weather.so
-%_kde_libdir/kde4/kcm_weatherservice.so
-%_kde_libdir/kde4/weather_panelapplet.so
 %dir %_kde_appsdir/amor
-%_kde_appsdir/amor/billyrc
-%_kde_appsdir/amor/blobrc
-%_kde_appsdir/amor/bonhommerc
-%_kde_appsdir/amor/bsdrc
-%_kde_appsdir/amor/eyesrc
-%_kde_appsdir/amor/ghostrc
-%_kde_appsdir/amor/nekorc
-%_kde_appsdir/amor/pingurc
-%_kde_appsdir/amor/taorc
-%_kde_appsdir/amor/tips-en
-%_kde_appsdir/amor/tuxrc
-%_kde_appsdir/amor/wormrc
-%dir %_kde_appsdir/amor/pics
-%dir %_kde_appsdir/amor/pics/animated
-%dir %_kde_appsdir/amor/pics/animated/blob
-%_kde_appsdir/amor/pics/animated/blob/*.png
-%dir %_kde_appsdir/amor/pics/animated/bonhomme
-%_kde_appsdir/amor/pics/animated/bonhomme/*.png
-%dir %_kde_appsdir/amor/pics/animated/eyes
-%_kde_appsdir/amor/pics/animated/eyes/*.png
-%dir %_kde_appsdir/amor/pics/animated/tao
-%_kde_appsdir/amor/pics/animated/tao/*.png
-%dir %_kde_appsdir/amor/pics/animated/worm
-%_kde_appsdir/amor/pics/animated/worm/*.png
-%dir %_kde_appsdir/amor/pics/animated/pingu
-%_kde_appsdir/amor/pics/animated/pingu/*.png
-%dir %_kde_appsdir/amor/pics/preview
-%_kde_appsdir/amor/pics/preview/*.png
-%dir %_kde_appsdir/amor/pics/animated/ghost
-%_kde_appsdir/amor/pics/animated/ghost/*.png
-%dir %_kde_appsdir/amor/pics/animated/neko
-%_kde_appsdir/amor/pics/animated/neko/*.png
-%dir %_kde_appsdir/amor/pics/static
-%_kde_appsdir/amor/pics/static/*.png
+%_kde_appsdir/amor/*
 %_kde_iconsdir/hicolor/*/apps/amor.png
 %_datadir/dbus-1/interfaces/org.kde.amor.xml
 
@@ -153,30 +112,6 @@ Tux-in-a-Spaceship screen saver
 %_kde_appsdir/ktux/sprites/*.png
 %_kde_iconsdir/hicolor/*/apps/ktux.png
 %_kde_datadir/kde4/services/ScreenSavers/ktux.desktop
-
-#-------------------------------------------------------------------
-
-%package -n kde4-kmoon
-Group:      Graphical desktop/KDE
-Summary:    System tray applet showing the moon phase
-Provides:   kmoon4
-Conflicts:  kdetoys4 < 3.97.1-0.745233.1
-
-%description -n kde4-kmoon
-System tray applet showing the moon phase
-
-%files -n kde4-kmoon
-%defattr(-,root,root)
-%_kde_libdir/kde4/kmoon_panelapplet.so
-%_kde_appsdir/kicker/applets/kmoonapplet.desktop
-%dir %_kde_appsdir/kmoon
-%dir %_kde_appsdir/kmoon/pics
-%_kde_appsdir/kmoon/pics/*.png
-%_kde_iconsdir/hicolor/*/apps/kmoon.png
-
-%dir %_kde_docdir/HTML/en/kmoon
-%_kde_docdir/HTML/en/kmoon/index.cache.bz2
-%_kde_docdir/HTML/en/kmoon/index.docbook
 
 #-------------------------------------------------------------------
 
@@ -217,7 +152,6 @@ TODO
 %defattr(-,root,root)
 %_kde_bindir/kworldclock
 %_kde_datadir/applications/kde4/kworldclock.desktop
-%_kde_appsdir/kdesktop/programs/kdeworld.desktop
 %_kde_appsdir/kworldclock/maps/depths/400.jpg
 %_kde_appsdir/kworldclock/maps/depths/800.jpg
 %_kde_appsdir/kworldclock/maps/depths/depths.desktop
@@ -233,8 +167,6 @@ TODO
 %_kde_appsdir/kworldclock/pics/flag-red.png
 %_kde_appsdir/kworldclock/pics/flag.png
 %_kde_appsdir/kworldclock/zone.tab
-%_kde_libdir/kde4/ww_panelapplet.so
-%_kde_appsdir/kicker/applets/kwwapplet.desktop
 %_kde_iconsdir/hicolor/*/apps/kworldclock.png
 
 
@@ -245,48 +177,13 @@ TODO
 
 #-------------------------------------------------------------------
 
-%package -n kde4-eyesapplet
-Group:      Graphical desktop/KDE
-Summary:    A plasma applet similar to XEyes
-Provides:   eyesapplet4
-Conflicts:  kdetoys4 < 3.97.1-0.745233.1
-
-%description -n kde4-eyesapplet
-A plasma applet similar to XEyes
-
-%files -n kde4-eyesapplet
-%defattr(-,root,root)
-%_kde_libdir/kde4/eyes_panelapplet.so
-%_kde_appsdir/kicker/applets/eyesapplet.desktop
-
-#-------------------------------------------------------------------
-
-%package -n kde4-fifteenpieces
-Group:      Graphical desktop/KDE
-Summary:    Plasma applet, order 15 pieces in a 4x4 square by moving them
-Provides:   fifteenpieces4
-Conflicts:  kdetoys4 < 3.97.1-0.745233.1
-
-%description -n kde4-fifteenpieces
-Plasma applet, order 15 pieces in a 4x4 square by moving them
-
-%files -n kde4-fifteenpieces
-%defattr(-,root,root)
-%_kde_libdir/kde4/fifteen_panelapplet.so
-%_kde_appsdir/kicker/applets/kfifteenapplet.desktop
-%_kde_iconsdir/hicolor/*/*/fifteenpieces.*
-
-#-------------------------------------------------------------------
-
 
 
 %prep
-
 %setup -q -n kdetoys-%version
 
 
 %build
-
 %cmake_kde4
 
 %make
