@@ -1,29 +1,15 @@
-%define revision 750618
-
-%define branch 0
-%{?_branch: %{expand: %%global branch 1}}
-
-%define lib_name_orig %mklibname kdetoys4
-%define lib_major 1
-%define lib_name %lib_name_orig%lib_major
-
 Name:		kdetoys4
 Summary:	K Desktop Environment - Toys and Amusements
-Version:    4.0.0
+Version:    4.0.1
 Epoch:		1
 URL:		ftp://ftp.kde.org/pub/kde/stable/%version/src/
-%if %branch
-Release:        %mkrel 0.%revision.1
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version.%revision.tar.bz2
-%else
 Release:        %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version.tar.bz2
-%endif
 Group:		Graphical desktop/KDE
 BuildRoot:	%_tmppath/%name-%version-%release-root
 License:	GPL
-BuildRequires:	kdebase4-devel >= %version
-BuildRequires:  kdebase4-workspace-devel
+BuildRequires:	kdelibs4-devel >= %version
+
 %description
 Toys for the K Desktop Environment.
 
