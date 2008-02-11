@@ -6,7 +6,6 @@ URL:		ftp://ftp.kde.org/pub/kde/stable/%version/src/
 Release:        %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version.tar.bz2
 Group:		Graphical desktop/KDE
-BuildRoot:	%_tmppath/%name-%version-%release-root
 License:	GPL
 BuildRequires:	kdelibs4-devel >= %version
 
@@ -27,7 +26,6 @@ Software included in this package are:
 Group:      Graphical desktop/KDE
 Summary:    Plasma applet that will display the current weather outside 
 Provides:   kweather4
-Obsoletes:  %lib_name-kweather < 3.97.1-0.745233.1
 
 %description -n kde4-kweather
 Plasma applet that will display the current weather outside
@@ -47,9 +45,7 @@ Plasma applet that will display the current weather outside
 %_kde_libdir/kde4/kcm_weatherservice.so
 %_datadir/dbus-1/interfaces/org.kde.kweather.kweather.xml
 %_datadir/dbus-1/interfaces/org.kde.kweather.service.xml
-%dir %_kde_docdir/HTML/en/kweather
-%doc %_kde_docdir/HTML/en/kweather/index.cache.bz2
-%doc %_kde_docdir/HTML/en/kweather/index.docbook
+%_kde_docdir/*/*/kweather
 
 #-------------------------------------------------------------------
 
@@ -72,11 +68,7 @@ Amusing Misuse Of Resources put's comic figures above your windows
 %_kde_appsdir/amor/*
 %_kde_iconsdir/hicolor/*/apps/amor.png
 %_datadir/dbus-1/interfaces/org.kde.amor.xml
-
-%dir %_kde_docdir/HTML/en/amor
-%doc %_kde_docdir/HTML/en/amor/*.png
-%doc %_kde_docdir/HTML/en/amor/*.bz2
-%doc %_kde_docdir/HTML/en/amor/*.docbook
+%_kde_docdir/*/*/amor
 
 #-------------------------------------------------------------------
 
@@ -117,11 +109,7 @@ System tray applet that makes sure your tea doesn't get too strong
 %_kde_appsdir/kteatime/kteatime.notifyrc
 %_kde_datadir/applications/kde4/kteatime.desktop
 %_kde_iconsdir/hicolor/*/apps/kteatime.png
-
-%dir %_kde_docdir/HTML/en/kteatime
-%_kde_docdir/HTML/en/kteatime/config.png
-%_kde_docdir/HTML/en/kteatime/index.cache.bz2
-%_kde_docdir/HTML/en/kteatime/index.docbook
+%_kde_docdir/*/*/kteatime
 
 #-------------------------------------------------------------------
 
@@ -154,33 +142,21 @@ TODO
 %_kde_appsdir/kworldclock/pics/flag.png
 %_kde_appsdir/kworldclock/zone.tab
 %_kde_iconsdir/hicolor/*/apps/kworldclock.png
-
-
-%dir %doc %_kde_docdir/HTML/en/kworldclock
-%doc %_kde_docdir/HTML/en/kworldclock/index.cache.bz2
-%doc %_kde_docdir/HTML/en/kworldclock/*.docbook
-%doc %_kde_docdir/HTML/en/kworldclock/*.png
+%_kde_docdir/*/*/kworldclock
 
 #-------------------------------------------------------------------
 
-
-
 %prep
 %setup -q -n kdetoys-%version
-
 
 %build
 %cmake_kde4
 
 %make
 
-
-
-
 %install
 rm -fr %buildroot
-cd build
-make DESTDIR=%buildroot install
+make -C build DESTDIR=%buildroot install
 
 
 %clean
