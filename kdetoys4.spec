@@ -1,13 +1,14 @@
-Name:		kdetoys4
-Summary:	K Desktop Environment - Toys and Amusements
-Version:    4.0.1
-Epoch:		1
-URL:		ftp://ftp.kde.org/pub/kde/stable/%version/src/
-Release:        %mkrel 1
+Name: kdetoys4
+Summary: K Desktop Environment - Toys and Amusements
+Version: 4.0.1
+Epoch: 1
+URL: ftp://ftp.kde.org/pub/kde/stable/%version/src/
+Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version.tar.bz2
-Group:		Graphical desktop/KDE
-License:	GPL
-BuildRequires:	kdelibs4-devel >= %version
+Group: Graphical desktop/KDE
+License: GPL
+BuildRequires: kdelibs4-devel >= %version
+BuildRequires: kdebase4-workspace-devel
 
 %description
 Toys for the K Desktop Environment.
@@ -18,7 +19,6 @@ Software included in this package are:
 	- ktux: Tux-in-a-Spaceship screen saver
 	- kweather: plasma applet that will display the current weather outside
 	- kworldclock: application and plasma applet showing daylight area on the world globe
-
 
 #-------------------------------------------------------------------
 
