@@ -18,7 +18,8 @@ Software included in this package are:
 	- kteatime: system tray applet that makes sure your tea doesn't get too strong
 	- ktux: Tux-in-a-Spaceship screen saver
 	- kweather: plasma applet that will display the current weather outside
-	- kworldclock: application and plasma applet showing daylight area on the world globe
+	- kworldclock: application and plasma applet showing daylight area on the
+	  world globe
 
 #-------------------------------------------------------------------
 
