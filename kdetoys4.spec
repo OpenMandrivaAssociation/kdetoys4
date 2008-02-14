@@ -6,6 +6,7 @@ URL: ftp://ftp.kde.org/pub/kde/stable/%version/src/
 Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version.tar.bz2
 Group: Graphical desktop/KDE
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License: GPL
 BuildRequires: kdelibs4-devel >= %version
 BuildRequires: kdebase4-workspace-devel
