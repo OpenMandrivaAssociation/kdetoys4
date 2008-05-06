@@ -10,6 +10,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License: GPL
 BuildRequires: kdelibs4-devel >= %version
 BuildRequires: kdebase4-workspace-devel >= %version
+BuildRequires: qimageblitz-devel
 
 %description
 Toys for the K Desktop Environment.
