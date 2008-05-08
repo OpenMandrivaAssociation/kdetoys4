@@ -1,13 +1,13 @@
-Name: kdetoys4
-Summary: K Desktop Environment - Toys and Amusements
-Version: 4.0.72
-Epoch: 1
-URL: ftp://ftp.kde.org/pub/kde/stable/%version/src/
-Release: %mkrel 1
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version.tar.bz2
-Group: Graphical desktop/KDE
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-License: GPL
+Name:          kdetoys4
+Summary:       K Desktop Environment - Toys and Amusements
+Version:       4.0.73
+Epoch:         1
+URL:           ftp://ftp.kde.org/pub/kde/stable/%version/src/
+Release:       %mkrel 1
+Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version.tar.bz2
+Group:         Graphical desktop/KDE
+BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+License:       GPL
 BuildRequires: kdelibs4-devel >= %version
 BuildRequires: kdebase4-workspace-devel >= %version
 BuildRequires: qimageblitz-devel
@@ -25,10 +25,10 @@ Software included in this package are:
 
 #-------------------------------------------------------------------
 
-%package -n kweather
-Group:      Graphical desktop/KDE
-Summary:    Plasma applet that will display the current weather outside 
-Provides:   kweather4
+%package -n     kweather
+Group:          Graphical desktop/KDE
+Summary:        Plasma applet that will display the current weather outside 
+Provides:       kweather4
 Obsoletes:      kde4-kweather < 1:4.0.68
 Provides:       kde4-kweather = %epoch:%version
 
@@ -59,8 +59,8 @@ Group:      Graphical desktop/KDE
 Summary:    Amusing Misuse Of Resources put's comic figures above your windows
 Provides:   amor4
 Conflicts:  kdetoys4 < 3.97.1-0.745233.1
-Obsoletes:      kde4-amor < 1:4.0.68
-Provides:       kde4-amor = %epoch:%version
+Obsoletes:  kde4-amor < 1:4.0.68
+Provides:   kde4-amor = %epoch:%version
 
 %description -n amor
 Amusing Misuse Of Resources put's comic figures above your windows
@@ -84,8 +84,8 @@ Group:      Graphical desktop/KDE
 Summary:    Tux-in-a-Spaceship screen saver
 Provides:   ktux4
 Conflicts:  kdetoys4 < 3.97.1-0.745233.1
-Obsoletes:      kde4-ktux < 1:4.0.68
-Provides:       kde4-ktux = %epoch:%version
+Obsoletes:  kde4-ktux < 1:4.0.68
+Provides:   kde4-ktux = %epoch:%version
 
 %description -n ktux
 Tux-in-a-Spaceship screen saver
@@ -107,8 +107,8 @@ Group:      Graphical desktop/KDE
 Summary:    System tray applet that makes sure your tea doesn't get too strong
 Provides:   kteatime4
 Conflicts:  kdetoys4 < 3.97.1-0.745233.1
-Obsoletes:      kde4-kteatime < 1:4.0.68
-Provides:       kde4-kteatime = %epoch:%version
+Obsoletes:  kde4-kteatime < 1:4.0.68
+Provides:   kde4-kteatime = %epoch:%version
 
 
 %description -n kteatime
@@ -130,8 +130,8 @@ Group:      Graphical desktop/KDE
 Summary:    Application and plasma applet showing daylight area on the world globe
 Provides:   kworldclock4
 Conflicts:  kdetoys4 < 3.97.1-0.745233.1
-Obsoletes:      kde4-kworldclock < 1:4.0.68
-Provides:       kde4-kworldclock = %epoch:%version
+Obsoletes:  kde4-kworldclock < 1:4.0.68
+Provides:   kde4-kworldclock = %epoch:%version
 
 %description -n kworldclock
 TODO
