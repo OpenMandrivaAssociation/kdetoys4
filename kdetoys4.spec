@@ -13,6 +13,9 @@ BuildRequires: kdebase4-workspace-devel >= %version
 BuildRequires: automoc
 BuildRequires: qimageblitz-devel
 
+Obsoletes:     kworldclock < 1:4.0.74-1
+Obsoletes:     kde4-kworldclock < 1:4.0.68
+
 %description
 Toys for the K Desktop Environment.
 
@@ -21,8 +24,6 @@ Software included in this package are:
 	- kteatime: system tray applet that makes sure your tea doesn't get too strong
 	- ktux: Tux-in-a-Spaceship screen saver
 	- kweather: plasma applet that will display the current weather outside
-	- kworldclock: application and plasma applet showing daylight area on the
-	  world globe
 
 #-------------------------------------------------------------------
 
@@ -126,30 +127,6 @@ System tray applet that makes sure your tea doesn't get too strong
 
 #-------------------------------------------------------------------
 
-%package -n kworldclock
-Group:      Graphical desktop/KDE
-Summary:    Application and plasma applet showing daylight area on the world globe
-Provides:   kworldclock4
-Conflicts:  kdetoys4 < 3.97.1-0.745233.1
-Obsoletes:  kde4-kworldclock < 1:4.0.68
-Provides:   kde4-kworldclock = %epoch:%version
-
-%description -n kworldclock
-TODO
-
-%files -n kworldclock
-%defattr(-,root,root)
-%_kde_bindir/kworldclock
-%_kde_datadir/applications/kde4/kworldclock.desktop
-%_kde_appsdir/kworldclock/pics
-%_kde_appsdir/kworldclock/maps
-%_kde_appsdir/kworldclock/zone.tab
-%_kde_iconsdir/hicolor/*/apps/kworldclock.png
-%_kde_docdir/*/*/kworldclock
-
-
-#-------------------------------------------------------------------
-
 %define  kworldclock_major 4
 %define  libkworldclock %mklibname kworldclock %kworldclock_major
 
@@ -180,8 +157,6 @@ applications for %name
 
 %files devel
 %defattr(-,root,root,-)
-%_kde_includedir/kworldclock
-%_kde_libdir/libkworldclock.so
 
 #-------------------------------------------------------------------
 
