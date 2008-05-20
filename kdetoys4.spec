@@ -14,6 +14,7 @@ BuildRequires: automoc
 BuildRequires: qimageblitz-devel
 
 Obsoletes:     kworldclock < 1:4.0.74-1
+Obsoletes:     %{lib}kworldclock4 < 1:4.0.74-1
 Obsoletes:     kde4-kworldclock < 1:4.0.68
 
 %description
@@ -124,25 +125,6 @@ System tray applet that makes sure your tea doesn't get too strong
 %_kde_datadir/applications/kde4/kteatime.desktop
 %_kde_iconsdir/hicolor/*/apps/kteatime.png
 %_kde_docdir/*/*/kteatime
-
-#-------------------------------------------------------------------
-
-%define  kworldclock_major 4
-%define  libkworldclock %mklibname kworldclock %kworldclock_major
-
-%package -n %libkworldclock
-Summary:    KDE 4 core library
-Group:      System/Libraries
-
-%description -n %libkworldclock
-KDE 4 core library.
-
-%post -n   %libkworldclock -p /sbin/ldconfig
-%postun -n %libkworldclock -p /sbin/ldconfig
-
-%files -n %libkworldclock
-%defattr(-,root,root)
-%_kde_libdir/libkworldclock.so.%{kworldclock_major}*
 
 #-------------------------------------------------------------------
 
