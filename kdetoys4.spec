@@ -14,7 +14,7 @@ BuildRequires: automoc
 BuildRequires: qimageblitz-devel
 
 Obsoletes:     kworldclock < 1:4.0.74-1
-Obsoletes:     %{lib}kworldclock4 < 1:4.0.74-1
+Obsoletes:     %{_lib}kworldclock4 < 1:4.0.74-1
 Obsoletes:     kde4-kworldclock < 1:4.0.68
 
 %description
