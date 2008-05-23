@@ -44,10 +44,8 @@ Plasma applet that will display the current weather outside
 %_kde_bindir/kweatherreport
 %_kde_bindir/kweatherservice
 %_kde_libdir/libkdeinit4_kweatherreport.so
-%dir %_kde_appsdir/kweather
-%_kde_appsdir/kweather/*.png
-%_kde_appsdir/kweatherservice/stations.dat
-%_kde_appsdir/kweatherservice/weather_stations.desktop
+%_kde_appsdir/kweather
+%_kde_appsdir/kweatherservice
 %_kde_iconsdir/hicolor/*/apps/kweather.png   
 %_kde_datadir/kde4/services/kweatherservice.desktop
 %_kde_libdir/kde4/kcm_weather.so
@@ -75,8 +73,7 @@ Amusing Misuse Of Resources put's comic figures above your windows
 %_kde_datadir/applications/kde4/amor.desktop
 %_kde_datadir/kde4/services/kcmweather.desktop
 %_kde_datadir/kde4/services/kcmweatherservice.desktop
-%dir %_kde_appsdir/amor
-%_kde_appsdir/amor/*
+%_kde_appsdir/amor
 %_kde_iconsdir/hicolor/*/apps/amor.png
 %_datadir/dbus-1/interfaces/org.kde.amor.xml
 %_kde_docdir/*/*/amor
@@ -97,10 +94,7 @@ Tux-in-a-Spaceship screen saver
 %files -n ktux
 %defattr(-,root,root)
 %_kde_bindir/ktux
-%dir %_kde_appsdir/ktux
-%dir %_kde_appsdir/ktux/sprites
-%_kde_appsdir/ktux/sprites/spriterc
-%_kde_appsdir/ktux/sprites/*.png
+%_kde_appsdir/ktux
 %_kde_iconsdir/hicolor/*/apps/ktux.png
 %_kde_datadir/kde4/services/ScreenSavers/ktux.desktop
 
@@ -121,8 +115,7 @@ System tray applet that makes sure your tea doesn't get too strong
 %files -n kteatime
 %defattr(-,root,root)
 %_kde_bindir/kteatime
-%dir %_kde_appsdir/kteatime
-%_kde_appsdir/kteatime/kteatime.notifyrc
+%_kde_appsdir/kteatime
 %_kde_datadir/applications/kde4/kteatime.desktop
 %_kde_iconsdir/hicolor/*/apps/kteatime.png
 %_kde_docdir/*/*/kteatime
