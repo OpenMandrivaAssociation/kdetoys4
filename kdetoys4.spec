@@ -49,8 +49,6 @@ Plasma applet that will display the current weather outside
 %_kde_datadir/kde4/services/kweatherservice.desktop
 %_kde_libdir/kde4/kcm_weather.so
 %_kde_libdir/kde4/kcm_weatherservice.so
-%_datadir/dbus-1/interfaces/org.kde.kweather.kweather.xml
-%_datadir/dbus-1/interfaces/org.kde.kweather.service.xml
 %_kde_docdir/*/*/kweather
 
 #-------------------------------------------------------------------
@@ -74,7 +72,6 @@ Amusing Misuse Of Resources put's comic figures above your windows
 %_kde_datadir/kde4/services/kcmweatherservice.desktop
 %_kde_appsdir/amor
 %_kde_iconsdir/hicolor/*/apps/amor.png
-%_datadir/dbus-1/interfaces/org.kde.amor.xml
 %_kde_docdir/*/*/amor
 
 #-------------------------------------------------------------------
@@ -132,6 +129,7 @@ applications for %name
 
 %files devel
 %defattr(-,root,root,-)
+%_kde_datadir/dbus-1/interfaces/*
 
 #-------------------------------------------------------------------
 
