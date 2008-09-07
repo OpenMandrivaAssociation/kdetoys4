@@ -1,6 +1,6 @@
 Name:          kdetoys4
 Summary:       K Desktop Environment - Toys and Amusements
-Version: 4.1.0
+Version: 4.1.1
 Epoch:         1
 URL:           ftp://ftp.kde.org/pub/kde/stable/%version/src/
 Release: %mkrel 1
@@ -113,7 +113,7 @@ System tray applet that makes sure your tea doesn't get too strong
 %_kde_bindir/kteatime
 %_kde_appsdir/kteatime
 %_kde_datadir/applications/kde4/kteatime.desktop
-%_kde_iconsdir/hicolor/*/apps/kteatime.png
+%_kde_iconsdir/hicolor/*/apps/kteatime.*
 %_kde_docdir/*/*/kteatime
 
 #-------------------------------------------------------------------
