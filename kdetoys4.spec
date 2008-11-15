@@ -135,7 +135,7 @@ applications for %name
 
 %prep
 %setup -q -n kdetoys-%version
-%patch0 -p0
+%patch0 -p0 -b .commited_upstream
 
 %build
 %cmake_kde4
