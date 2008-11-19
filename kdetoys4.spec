@@ -5,7 +5,6 @@ Epoch:         1
 URL:           ftp://ftp.kde.org/pub/kde/stable/%version/src/
 Release: %mkrel 1
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version.tar.bz2
-Patch0:        kdetoys-4.1.73-add-kweather-doc.patch
 Group:         Graphical desktop/KDE
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:       GPL
@@ -135,7 +134,6 @@ applications for %name
 
 %prep
 %setup -q -n kdetoys-%version
-%patch0 -p0 -b .commited_upstream
 
 %build
 %cmake_kde4
