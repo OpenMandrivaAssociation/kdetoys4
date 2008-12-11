@@ -1,9 +1,9 @@
 Name:          kdetoys4
 Summary:       K Desktop Environment - Toys and Amusements
-Version: 4.1.81
+Version:       4.1.82
 Epoch:         1
 URL:           ftp://ftp.kde.org/pub/kde/stable/%version/src/
-Release: %mkrel 1
+Release:       %mkrel 1
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version.tar.bz2
 Group:         Graphical desktop/KDE
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
