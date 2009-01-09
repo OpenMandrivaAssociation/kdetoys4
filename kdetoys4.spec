@@ -71,6 +71,7 @@ Amusing Misuse Of Resources put's comic figures above your windows
 %_kde_appsdir/amor
 %_kde_iconsdir/hicolor/*/apps/amor.png
 %_kde_docdir/*/*/amor
+%_kde_mandir/man6/amor.6.*
 
 #-------------------------------------------------------------------
 
