@@ -22,7 +22,6 @@ Toys for the K Desktop Environment.
 Software included in this package are:
 	- amor: Amusing Misuse Of Resources put's comic figures above your windows
 	- kteatime: system tray applet that makes sure your tea doesn't get too strong
-	- ktux: Tux-in-a-Spaceship screen saver
 	- kweather: plasma applet that will display the current weather outside
 
 #-------------------------------------------------------------------
@@ -72,26 +71,6 @@ Amusing Misuse Of Resources put's comic figures above your windows
 %_kde_appsdir/amor
 %_kde_iconsdir/hicolor/*/apps/amor.png
 %_kde_docdir/*/*/amor
-
-#-------------------------------------------------------------------
-
-%package -n ktux
-Group:      Graphical desktop/KDE
-Summary:    Tux-in-a-Spaceship screen saver
-Provides:   ktux4
-Conflicts:  kdetoys4 < 3.97.1-0.745233.1
-Obsoletes:  kde4-ktux < 1:4.0.68
-Provides:   kde4-ktux = %epoch:%version
-
-%description -n ktux
-Tux-in-a-Spaceship screen saver
-
-%files -n ktux
-%defattr(-,root,root)
-%_kde_bindir/ktux
-%_kde_appsdir/ktux
-%_kde_iconsdir/hicolor/*/apps/ktux.png
-%_kde_datadir/kde4/services/ScreenSavers/ktux.desktop
 
 #-------------------------------------------------------------------
 
