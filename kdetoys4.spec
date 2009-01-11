@@ -1,9 +1,9 @@
 Name:          kdetoys4
 Summary:       K Desktop Environment - Toys and Amusements
-Version: 4.1.96
+Version:       4.1.96
 Epoch:         1
 URL:           ftp://ftp.kde.org/pub/kde/stable/%version/src/
-Release: %mkrel 1
+Release:       %mkrel 2
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version.tar.bz2
 Group:         Graphical desktop/KDE
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -23,8 +23,29 @@ Software included in this package are:
 	- amor: Amusing Misuse Of Resources put's comic figures above your windows
 	- kteatime: system tray applet that makes sure your tea doesn't get too strong
 	- kweather: plasma applet that will display the current weather outside
+    - ktux: Tux-in-a-Spaceship screen saver
 
 #-------------------------------------------------------------------
+
+%package -n ktux
+Group:      Graphical desktop/KDE
+Summary:    Tux-in-a-Spaceship screen saver
+Provides:   ktux4
+Conflicts:  kdetoys4 < 3.97.1-0.745233.1
+Obsoletes:  kde4-ktux < 1:4.0.68
+Provides:   kde4-ktux = %epoch:%version
+
+%description -n ktux
+Tux-in-a-Spaceship screen saver
+
+%files -n ktux
+%defattr(-,root,root)
+%_kde_bindir/ktux
+%_kde_appsdir/ktux
+%_kde_iconsdir/hicolor/*/apps/ktux.png
+%_kde_datadir/kde4/services/ScreenSavers/ktux.desktop
+
+#-----------------------------------------------------------------
 
 %package -n     kweather
 Group:          Graphical desktop/KDE
