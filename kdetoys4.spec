@@ -1,10 +1,12 @@
+%define kderevision svn954171
+
 Name:          kdetoys4
 Summary:       K Desktop Environment - Toys and Amusements
-Version: 4.2.2
+Version:       4.2.70
 Epoch:         1
-URL:           ftp://ftp.kde.org/pub/kde/stable/%version/src/
-Release: %mkrel 1
-Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdetoys-%version.tar.bz2
+URL:           ftp://ftp.kde.org/pub/kde/unstable/%version/src/
+Release:       %mkrel 0.%{kderevision}.1
+Source:        ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%version.%{kderevision}.tar.bz2
 Group:         Graphical desktop/KDE
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:       GPL
@@ -134,7 +136,7 @@ applications for %name
 #-------------------------------------------------------------------
 
 %prep
-%setup -q -n kdetoys-%version
+%setup -q -n kdetoys-%version.%{kderevision}
 
 %build
 %cmake_kde4
