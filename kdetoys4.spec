@@ -1,8 +1,8 @@
-%define kderevision svn954171
+%define kderevision svn961800
 
 Name:          kdetoys4
 Summary:       K Desktop Environment - Toys and Amusements
-Version:       4.2.70
+Version:       4.2.71
 Epoch:         1
 URL:           ftp://ftp.kde.org/pub/kde/unstable/%version/src/
 Release:       %mkrel 0.%{kderevision}.1
