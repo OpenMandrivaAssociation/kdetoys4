@@ -1,4 +1,9 @@
-%define kderev 969966
+%define branch 1
+%{?_branch: %{expand: %%global branch 1}}
+
+%if %branch
+%define kderevision svn969966
+%endif
 
 Name:          kdetoys4
 Summary:       K Desktop Environment - Toys and Amusements
@@ -6,7 +11,11 @@ Version:       4.2.87
 Epoch:         1
 URL:           ftp://ftp.kde.org/pub/kde/unstable/%version/src/
 Release:       %mkrel 1
-Source:        ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%{version}svn%{kderev}.tar.bz2
+%if %branch
+Source:        ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%{version}%kderevision.tar.bz2
+%else
+Source:        ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%{version}.tar.bz2
+%endif
 Group:         Graphical desktop/KDE
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:       GPL
@@ -136,7 +145,11 @@ applications for %name
 #-------------------------------------------------------------------
 
 %prep
-%setup -q -n kdetoys-%{version}svn%{kderev}
+%if %branch
+%setup -q -n kdetoys-%{version}%kderevision
+%else
+%setup -q -n kdetoys-%{version}
+%endif
 
 %build
 %cmake_kde4
