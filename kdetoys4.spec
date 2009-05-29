@@ -2,12 +2,12 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define kderevision svn969966
+%define kderevision svn973768
 %endif
 
 Name:          kdetoys4
 Summary:       K Desktop Environment - Toys and Amusements
-Version:       4.2.87
+Version:       4.2.88
 Epoch:         1
 URL:           ftp://ftp.kde.org/pub/kde/unstable/%version/src/
 Release:       %mkrel 1
