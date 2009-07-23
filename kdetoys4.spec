@@ -1,31 +1,20 @@
-%define branch 0
-%{?_branch: %{expand: %%global branch 1}}
-
-%if %branch
-%define kderevision svn973768
-%endif
-
-Name:          kdetoys4
-Summary:       K Desktop Environment - Toys and Amusements
-Version:       4.2.96
-Epoch:         1
-URL:           ftp://ftp.kde.org/pub/kde/unstable/%version/src/
-Release:       %mkrel 1
-%if %branch
-Source:        ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%{version}%kderevision.tar.bz2
-%else
-Source:        ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%{version}.tar.bz2
-%endif
-Group:         Graphical desktop/KDE
-BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-License:       GPL
-BuildRequires: kdelibs4-devel >= %version
-BuildRequires: kdebase4-workspace-devel >= %version
+Name: kdetoys4
+Summary: K Desktop Environment - Toys and Amusements
+Version: 4.2.98
+Epoch: 1
+URL: ftp://ftp.kde.org/pub/kde/unstable/%version/src/
+Release: %mkrel 1
+Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%{version}.tar.bz2
+Group: Graphical desktop/KDE
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+License: GPL
+BuildRequires: kdelibs4-devel >= 2:4.2.98
+BuildRequires: kdelibs4-experimental-devel >= 2:4.2.98
+BuildRequires: kdebase4-workspace-devel >= 4.2.98
 BuildRequires: qimageblitz-devel
-
-Obsoletes:     kworldclock < 1:4.0.74-1
-Obsoletes:     %{_lib}kworldclock4 < 1:4.0.74-1
-Obsoletes:     kde4-kworldclock < 1:4.0.68
+Obsoletes: kworldclock < 1:4.0.74-1
+Obsoletes: %{_lib}kworldclock4 < 1:4.0.74-1
+Obsoletes: kde4-kworldclock < 1:4.0.68
 
 %description
 Toys for the K Desktop Environment.
@@ -145,11 +134,7 @@ applications for %name
 #-------------------------------------------------------------------
 
 %prep
-%if %branch
-%setup -q -n kdetoys-%{version}%kderevision
-%else
 %setup -q -n kdetoys-%{version}
-%endif
 
 %build
 %cmake_kde4
@@ -157,7 +142,7 @@ applications for %name
 
 %install
 rm -fr %buildroot
-make -C build DESTDIR=%buildroot install
+%makeinstall_std -C build
 
 %clean
 rm -fr %buildroot
