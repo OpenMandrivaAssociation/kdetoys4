@@ -1,6 +1,6 @@
 Name: kdetoys4
 Summary: K Desktop Environment - Toys and Amusements
-Version: 4.2.98
+Version: 4.3.0
 Epoch: 1
 URL: ftp://ftp.kde.org/pub/kde/unstable/%version/src/
 Release: %mkrel 1
