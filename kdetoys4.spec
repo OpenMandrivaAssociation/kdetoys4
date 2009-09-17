@@ -3,7 +3,7 @@ Summary: K Desktop Environment - Toys and Amusements
 Version: 4.3.1
 Epoch: 1
 URL: ftp://ftp.kde.org/pub/kde/unstable/%version/src/
-Release: %mkrel 1
+Release: %mkrel 2
 Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%{version}.tar.bz2
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -15,6 +15,9 @@ BuildRequires: qimageblitz-devel
 Obsoletes: kworldclock < 1:4.0.74-1
 Obsoletes: %{_lib}kworldclock4 < 1:4.0.74-1
 Obsoletes: kde4-kworldclock < 1:4.0.68
+%if %mdkversion >= 200100
+Obsoletes:   kdetoys < 1:3.5.10-2
+%endif
 
 %description
 Toys for the K Desktop Environment.
@@ -53,6 +56,9 @@ Summary:        Plasma applet that will display the current weather outside
 Provides:       kweather4
 Obsoletes:      kde4-kweather < 1:4.0.68
 Provides:       kde4-kweather = %epoch:%version
+%if %mdkversion >= 200100
+Obsoletes:      kdetoys-kweather < 1:3.5.10-3
+%endif
 
 %description -n kweather
 Plasma applet that will display the current weather outside
