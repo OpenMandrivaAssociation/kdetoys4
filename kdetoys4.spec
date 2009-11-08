@@ -1,10 +1,12 @@
+%define kde_snapshot svn1040395
+
 Name: kdetoys4
 Summary: K Desktop Environment - Toys and Amusements
-Version: 4.3.2
+Version: 4.3.73
 Epoch: 1
 URL: ftp://ftp.kde.org/pub/kde/unstable/%version/src/
-Release: %mkrel 3
-Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%{version}.tar.bz2
+Release: %mkrel 1
+Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%{version}%kde_snapshot.tar.bz2
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License: GPL
@@ -141,7 +143,7 @@ applications for %name
 #-------------------------------------------------------------------
 
 %prep
-%setup -q -n kdetoys-%{version}
+%setup -q -n kdetoys-%{version}%kde_snapshot
 
 %build
 %cmake_kde4
