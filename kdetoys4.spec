@@ -5,7 +5,7 @@ Summary: K Desktop Environment - Toys and Amusements
 Version: 4.3.73
 Epoch: 1
 URL: ftp://ftp.kde.org/pub/kde/unstable/%version/src/
-Release: %mkrel 1
+Release: %mkrel 2
 Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%{version}%kde_snapshot.tar.bz2
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
