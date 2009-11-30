@@ -1,8 +1,8 @@
-%define kde_snapshot svn1048496
+%define kde_snapshot svn1053190
 
 Name: kdetoys4
 Summary: K Desktop Environment - Toys and Amusements
-Version: 4.3.75
+Version: 4.3.77
 Epoch: 1
 URL: ftp://ftp.kde.org/pub/kde/unstable/%version/src/
 Release: %mkrel 1
