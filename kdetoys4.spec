@@ -8,7 +8,7 @@
 
 Name: kdetoys4
 Summary: K Desktop Environment - Toys and Amusements
-Version: 4.3.80
+Version: 4.3.85
 Epoch: 1
 URL: ftp://ftp.kde.org/pub/kde/unstable/%version/src/
 Release: %mkrel 1
@@ -21,7 +21,6 @@ Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License: GPL
 BuildRequires: kdelibs4-devel >= 2:4.2.98
-BuildRequires: kdelibs4-experimental-devel >= 2:4.2.98
 BuildRequires: kdebase4-workspace-devel >= 4.2.98
 BuildRequires: qimageblitz-devel
 Obsoletes: kworldclock < 1:4.0.74-1
