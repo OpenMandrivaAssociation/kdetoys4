@@ -3,18 +3,19 @@
 
 
 %if %branch
-%define kde_snapshot svn1174542
+%define kde_snapshot svn1190490
 %endif
 
 Name: kdetoys4
 Summary: K Desktop Environment - Toys and Amusements
-Version: 4.5.68
+Version: 4.5.74
 Epoch: 1
 URL: ftp://ftp.kde.org/pub/kde/unstable/%version/src/
-Release: %mkrel 1
 %if %branch
+Release: %mkrel -c %kde_snapshot 1
 Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%{version}%kde_snapshot.tar.bz2
 %else
+Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%{version}.tar.bz2
 %endif
 Group: Graphical desktop/KDE
