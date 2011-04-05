@@ -11,10 +11,10 @@ Version: 4.6.2
 Epoch: 1
 URL: http://www.kde.org
 %if %branch
-Release: %mkrel -c %kde_snapshot 1
+Release: 0.%kde_snapshot.1
 Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%{version}%kde_snapshot.tar.bz2
 %else
-Release: %mkrel 1
+Release: 1
 Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%{version}.tar.bz2
 %endif
 Group: Graphical desktop/KDE
