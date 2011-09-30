@@ -1,22 +1,10 @@
-%define branch 0
-%{?_branch: %{expand: %%global branch 1}}
-
-%if %branch
-%define kde_snapshot svn1198704
-%endif
-
 Name: kdetoys4
 Summary: K Desktop Environment - Toys and Amusements
-Version: 4.6.4
+Version: 4.7.41
 Epoch: 1
 URL: http://www.kde.org
-%if %branch
-Release: 0.%kde_snapshot.1
-Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%{version}%kde_snapshot.tar.bz2
-%else
 Release: 1
 Source: ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdetoys-%{version}.tar.bz2
-%endif
 Group: Graphical desktop/KDE
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License: GPL
@@ -26,10 +14,6 @@ BuildRequires: qimageblitz-devel
 Obsoletes: kworldclock < 1:4.0.74-1
 Obsoletes: %{_lib}kworldclock4 < 1:4.0.74-1
 Obsoletes: kde4-kworldclock < 1:4.0.68
-%if %mdkversion >= 201000
-Obsoletes: kdetoys < 1:3.5.10-2
-Provides:  kdetoys = %epoch:%version-%release
-%endif
 
 %description
 Toys for the K Desktop Environment.
@@ -122,19 +106,12 @@ applications for %name
 #-------------------------------------------------------------------
 
 %prep
-%if %branch
-%setup -q -n kdetoys-%{version}%kde_snapshot
-%else
 %setup -q -n kdetoys-%{version}
-%endif
 
 %build
 %cmake_kde4
 %make
 
 %install
-rm -fr %buildroot
 %makeinstall_std -C build
 
-%clean
-rm -fr %buildroot
