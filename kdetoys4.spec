@@ -1,6 +1,6 @@
 Name: kdetoys4
 Summary: K Desktop Environment - Toys and Amusements
-Version: 4.7.95
+Version: 4.7.97
 Epoch: 1
 URL: http://www.kde.org
 Release: 1
