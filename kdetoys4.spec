@@ -1,12 +1,12 @@
 Name:		kdetoys4
-Version:	4.8.97
-Release:	1
+Version: 4.9.0
+Release: 1
 Epoch:		1
 Summary:	K Desktop Environment - Toys and Amusements
 Group:		Graphical desktop/KDE
 License:	GPL
 URL:		http://www.kde.org
-Source:		ftp://ftp.kde.org/pub/kde/unstable/%{version}/src/kdetoys-%{version}.tar.xz
+Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/kdetoys-%{version}.tar.xz
 BuildRequires:	kdelibs4-devel
 BuildRequires:	kdebase4-workspace-devel
 BuildRequires:	pkgconfig(qimageblitz)
