@@ -1,5 +1,5 @@
 Name:		kdetoys4
-Version: 4.9.2
+Version: 4.9.3
 Release: 1
 Epoch:		1
 Summary:	K Desktop Environment - Toys and Amusements
