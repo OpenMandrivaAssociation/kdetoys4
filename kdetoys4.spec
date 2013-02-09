@@ -1,5 +1,5 @@
 Name:		kdetoys4
-Version:	4.9.4
+Version:	4.10.0
 Release:	1
 Epoch:		1
 Summary:	K Desktop Environment - Toys and Amusements
@@ -25,7 +25,7 @@ Software included in this package are:
 %package -n ktux
 Group:		Graphical desktop/KDE
 Summary:	Tux-in-a-Spaceship screen saver
-Provides:	ktux4
+Provides:	ktux4 = %{EVRD}
 Provides:	kde4-ktux = %{EVRD}
 
 %description -n ktux
@@ -42,7 +42,7 @@ Tux-in-a-Spaceship screen saver
 %package -n amor
 Group:		Graphical desktop/KDE
 Summary:	Amusing Misuse Of Resources put's comic figures above your windows
-Provides:	amor4
+Provides:	amor4 = %{EVRD}
 Provides:	kde4-amor = %{EVRD}
 
 %description -n amor
@@ -61,9 +61,8 @@ Amusing Misuse Of Resources put's comic figures above your windows
 %package -n kteatime
 Group:		Graphical desktop/KDE
 Summary:	System tray applet that makes sure your tea doesn't get too strong
-Provides:	kteatime4
+Provides:	kteatime4 = %{EVRD}
 Provides:	kde4-kteatime = %{EVRD}
-
 
 %description -n kteatime
 System tray applet that makes sure your tea doesn't get too strong
@@ -102,6 +101,10 @@ applications for %{name}
 %makeinstall_std -C build
 
 %changelog
+* Thu Feb 07 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.0-1
+- New version 4.10.0
+- Make all Provides versioned
+
 * Wed Dec 05 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.9.4-1
 - New version 4.9.4
 
