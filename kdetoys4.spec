@@ -1,11 +1,11 @@
+Summary:	K Desktop Environment - Toys and Amusements
 Name:		kdetoys4
-Version:	4.10.3
+Version:	4.10.4
 Release:	1
 Epoch:		1
-Summary:	K Desktop Environment - Toys and Amusements
 Group:		Graphical desktop/KDE
 License:	GPL
-URL:		http://www.kde.org
+Url:		http://www.kde.org
 Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/kdetoys-%{version}.tar.xz
 BuildRequires:	kdelibs4-devel
 BuildRequires:	kdebase4-workspace-devel
@@ -101,6 +101,9 @@ applications for %{name}
 %makeinstall_std -C build
 
 %changelog
+* Wed Jun 05 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.4-1
+- New version 4.10.4
+
 * Tue May 07 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.10.3-1
 - New version 4.10.3
 
