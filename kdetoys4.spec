@@ -1,6 +1,6 @@
 Summary:	K Desktop Environment - Toys and Amusements
 Name:		kdetoys4
-Version:	4.11.1
+Version:	4.11.2
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -31,6 +31,9 @@ Software suggested by this metapackage:
 %install
 
 %changelog
+* Wed Oct 02 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.2-1
+- New version 4.11.2
+
 * Tue Sep 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.11.1-1
 - New version 4.11.1
 
