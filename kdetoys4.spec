@@ -1,7 +1,7 @@
 Summary:	K Desktop Environment - Toys and Amusements
 Name:		kdetoys4
 Version:	4.12.4
-Release:	1
+Release:	2
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
