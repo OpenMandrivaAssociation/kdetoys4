@@ -5,7 +5,7 @@ Release:	3
 Epoch:		1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
-Url:		http://www.kde.org
+Url:		https://www.kde.org
 Suggests:	amor
 Suggests:	kteatime
 Suggests:	ktux
